@@ -1,0 +1,13 @@
+<goml bgColor="black">
+  <geometry type="custom" name="geo" />
+  <import-material typeName="shader" src="index.sort" />
+  <scene>
+    <camera far="1000" rotation="x(-30)" position="0,0,-10">
+      <camera.components>
+        <MouseCameraControl/>
+      </camera.components>
+    </camera>
+    <mesh class="graph" material="new(shader)" geometry="geo">
+    </mesh>
+  </scene>
+</goml>

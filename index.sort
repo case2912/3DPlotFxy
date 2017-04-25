@@ -1,0 +1,20 @@
+@Pass{
+    FS_PREC(mediump,float)
+    varying float posZ;
+#ifdef VS
+    attribute vec3 position;
+    uniform mat4 _matPVM;
+    void main(){
+        gl_Position = _matPVM *  vec4(position, 1.);
+        posZ = position.z;
+    }
+#endif
+
+#ifdef FS
+@{type:"color", default:"white"}
+uniform vec4 color;
+    void main(){
+        gl_FragColor = vec4(color);
+    }
+#endif
+}
