@@ -1,22 +1,24 @@
 import math from 'mathjs'
 import $ from 'jquery'
+import axis from './axis'
+axis()
 let s = 'sin(x + y*y)'
 const f = {
   x: 0,
   y: 0
 }
 const range = {
-  x1: -3,
-  x2: 3,
+  x1: -2,
+  x2: 2,
   y1: -2,
   y2: 2
 }
 document.addEventListener("DOMContentLoaded", () => {
   $("#range-x1").val(range.x1)
+  console.log(document)
   $("#range-x2").val(range.x2)
   $("#range-y1").val(range.y1)
   $("#range-y2").val(range.y2)
-  console.log("DOM fully loaded and parsed")
 })
 const node = math.parse(s)
 const code = node.compile()
@@ -66,9 +68,10 @@ GeometryFactory.addType("custom", {}, (gl) => {
   return geometry
 })
 
+
 gr(() => {
   const GeometryRegistory = gr("#main")("goml").first().companion.get("GeometryRegistory")
-  const geometry = GeometryRegistory.getGeometry("geo")
+  const geometry = GeometryRegistory.getGeometry("geo");
   $('#f-input').change(() => {
     s = $('#f-input').val()
     updateGeometry(geometry)
@@ -78,19 +81,15 @@ gr(() => {
   })
   $("#range-x1").change(() => {
     range.x1 = $('#range-x1').val()
-    updateGeometry(geometry)
   })
   $("#range-x2").change(() => {
     range.x2 = $('#range-x2').val()
-    updateGeometry(geometry)
   })
   $("#range-y1").change(() => {
     range.y1 = $('#range-y1').val()
-    updateGeometry(geometry)
   })
   $("#range-y2").change(() => {
     range.y2 = $('#range-y2').val()
-    updateGeometry(geometry)
   })
 })
 const updateGeometry = (geometry) => {

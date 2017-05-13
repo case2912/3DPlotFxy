@@ -1,5 +1,6 @@
 <goml bgColor="black">
   <geometry type="custom" name="geo" />
+  <geometry type="axis" name="axis" />
   <import-material typeName="shader" src="index.sort" />
   <scene>
     <camera far="1000" rotation="x(-30)" position="0,0,-10">
@@ -7,7 +8,11 @@
         <MouseCameraControl/>
       </camera.components>
     </camera>
-    <mesh class="graph" material="new(shader)" geometry="geo">
-    </mesh>
+    <mesh class="graph" material="new(shader)" geometry="geo"> </mesh>
+    <object>
+      <mesh class="graph" material="new(unlit)" color="green" scale="3" geometry="axis"> </mesh>
+      <mesh class="graph" material="new(unlit)" color="blue" scale="3" geometry="axis" rotation="z(90)"> </mesh>
+      <mesh class="graph" material="new(unlit)" color="red" scale="3" geometry="axis" rotation="y(90)"> </mesh>
+    </object>
   </scene>
 </goml>
